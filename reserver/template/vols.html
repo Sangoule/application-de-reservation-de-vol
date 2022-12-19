@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h3>Bonjour</h3>
-    {% for vol in vols %}
-    <div>{{vol.prix}}</div>
-    <div>{{vol.date}}</div>
-    <div>{{vol.heure}}</div>
-    <div>{{vol.trajet}}</div>
-    {% endfor %}
-</body>
-</html>
+{% extends "about.html" %}
+{% block content %}
+<br><br><br><br>
+<h3>Liste des Vols</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Trajet</th>
+            <th scope="col">Date</th>
+            <th scope="col">Heure</th>
+            <th scope="col">Prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vol in vols %}
+
+        <tr>
+            <th scope="row">{{vol.trajet}}</th>
+            <td>{{vol.date}}</td>
+            <td>{{vol.heure}}</td>
+            <td>{{vol.prix}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

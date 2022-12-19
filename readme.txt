@@ -26,3 +26,5 @@ nb en minuscule
  #####
  Enfin on ajoute les elements
  #!error str(self.prix)
+ ## on affiche les donnees de la base au niveau des vues
+ 
