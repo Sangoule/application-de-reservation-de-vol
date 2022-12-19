@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Bonjour</h3>
+    {% for vol in vols %}
+    <div>{{vol.prix}}</div>
+    <div>{{vol.date}}</div>
+    <div>{{vol.heure}}</div>
+    <div>{{vol.trajet}}</div>
+    {% endfor %}
+</body>
+</html>

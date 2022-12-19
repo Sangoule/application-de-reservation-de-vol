@@ -12,16 +12,16 @@ class Trajet(models.Model):
 # Création du model Vol
 class Vol(models.Model):
     prix = models.FloatField()
-    date = models.CharField(max_length = 10 )
+    date = models.CharField(max_length = 15 )
     heure = models.CharField(max_length = 5)
     trajet = models.ForeignKey(Trajet , on_delete = models.CASCADE)
     def __str__(self):
-        return self.prix
+        return str(self.prix)
 #||||||||||||||||||||||\
 #Création du Model Commande
 class Compagnie(models.Model):
     nom = models.CharField(max_length=50)
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to="photo/%Y/%m/%d", blank=True)
     vols = models.ManyToManyField(Vol)
     def __str__(self):
         return self.nom
