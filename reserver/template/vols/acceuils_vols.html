@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<h3>Liste des Vols</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Trajet</th>
+            <th scope="col">Date</th>
+            <th scope="col">Heure</th>
+            <th scope="col">Prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vol in vols %}
+
+        <tr>
+            <th scope="row">{{vol.trajet}}</th>
+            <td>{{vol.date}}</td>
+            <td>{{vol.heure}}</td>
+            <td>{{vol.prix}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

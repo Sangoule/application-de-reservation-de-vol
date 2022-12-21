@@ -18,7 +18,7 @@ class Vol(models.Model):
     def __str__(self):
         return str(self.prix)
 #||||||||||||||||||||||\
-#Création du Model Commande
+#Création du Model Compagnie
 class Compagnie(models.Model):
     nom = models.CharField(max_length=50)
     logo = models.ImageField(upload_to="photo/%Y/%m/%d", blank=True)

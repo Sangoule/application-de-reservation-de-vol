@@ -27,4 +27,7 @@ nb en minuscule
  Enfin on ajoute les elements
  #!error str(self.prix)
  ## on affiche les donnees de la base au niveau des vues
+#### Integration de template
+done 
+#### Pour creer une page on a besoin de sont url.py et d'une vues
  
