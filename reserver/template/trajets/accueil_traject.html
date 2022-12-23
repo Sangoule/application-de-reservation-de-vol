@@ -1,8 +1,7 @@
-
 {% extends 'layouts/base.html' %}
 
-{% block title %} Vols Details {% endblock title %}
-
+{% block title %} Trajects {% endblock title %}
+{% load static %}
  
 {% block content %}
 
@@ -11,12 +10,12 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Vols</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Trajects</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Vols</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Vols</li>
+                <li class="breadcrumb-item"><a href="#">Trajects</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Trajects</li>
               </ol>
             </nav>
           </div>
@@ -36,48 +35,40 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Enregistrement</h3>
+            <h3 class="mb-0">Liste Des Trajects</h3>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col" class="sort" data-sort="budget">Trajet</th>
-                  <th scope="col" class="sort" data-sort="budget">Date</th>
-                  <th scope="col" class="sort" data-sort="status">Heure</th>
-                  <th scope="col">Prix</th>
-                 
-             
+                  <th scope="col" class="sort" data-sort="budget">Depart</th>
+                  <th scope="col" class="sort" data-sort="budget">Arrivée</th>
+                  <th scope="col" class="sort" data-sort="status">Vol</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody class="list">
-               
+                {% for traject in trajects %}
                 <tr>
-                  <th scope="row">
-                    <div class="media align-items-center">
-                    
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">{{vols.trajet}}</span>
-                      </div>
-                    </div>
-                  </th>
-             
+                    <td>
+                        <span class="badge badge-dot mr-4">
+                          <i class="bg-success"></i>
+                          <span class="status">{{traject.depart}}</span>
+                        </span>
+                      </td>
+                
                   <td>
-                    <div class="d-flex align-items-center">
-                        <span class="name mb-0 text-sm">{{vols.date}}</span>
-                    </div>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{traject.arrivee}}</span>
+                    </span>
                   </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                        <span class="name mb-0 text-sm">{{vols.heure}}</span>
-                    </div>
+                  {% for vol in traject.vol_set.all %}
+                  <td class="budget">
+                    <a href="{% url 'volsdetails' vol.id %}">{{vol.trajet}}</a>
                   </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                        <span class="name mb-0 text-sm">{{vols.prix}}</span>
-                    </div>
-                  </td>
+                  {% endfor%} 
                   <td class="text-right">
                     <div class="dropdown">
                       <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -91,7 +82,7 @@
                     </div>
                   </td>
                 </tr>
-              
+              {% endfor%} 
               </tbody>
             </table>
           </div>
@@ -121,8 +112,8 @@
               </ul>
               <ul class="pagination justify-content-begin mb-0">
                 <li class="page-item">
-                    <a class="page-link" href="{% url 'compagnies' %}">
-                      <i class="fas fa-angle-left">Cie</i>
+                    <a class="page-link" href="{% url 'vols' %}">
+                      <i class="fas fa-angle-left">Vol</i>
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
@@ -133,8 +124,6 @@
       </div>
     </div>
 
-
-    </div> 
 
     {% include "includes/footer.html" %}
 

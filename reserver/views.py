@@ -14,9 +14,13 @@ def compagnies(request):
     compagnies=Compagnie.objects.all()
     context={'compagnies':compagnies}
     return render(request,'compagnies/accueil_cie.html',context)
-def volsdetails(request,pk):
-    vols=Vols.objects.gets(id=pk)
+def volsdetails(request,id):
+    vols=Vol.objects.get(pk=id)
     context={'vols':vols}
-    return render(request,'vols/accueil_cie.html',context)
+    return render(request,'vols/vols.html',context)
+def trajects(request):
+    trajects=Trajet.objects.all()
+    context={'trajects':trajects}
+    return render(request,'trajets/accueil_traject.html',context)
 
 

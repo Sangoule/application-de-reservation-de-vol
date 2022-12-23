@@ -1,27 +1,86 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-<h3>Liste des Vols</h3>
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Vols</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="#">Vols</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Vols</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="#" class="btn btn-sm btn-neutral">New</a>
+            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--6">
+  <div class="row">
+      <div class="col">
+        <div class="card bg-default shadow">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="text-white mb-0">Liste des Vols</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-dark table-flush">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" class="sort" data-sort="name">Trajet</th>
+                  <th scope="col" class="sort" data-sort="budget">Date</th>
+                  <th scope="col" class="sort" data-sort="status">Heure</th>
+                  <th scope="col" class="sort" data-sort="status">prix</th>
+                 
+                </tr>
+              </thead>
+              <tbody class="list">
+                {% for vol in vols %}
+                <tr>
+                 
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-success"></i>
+                      <span class="status">{{vol.trajet}}</span>
+                    </span>
+                  </td>
+            
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-success"></i>
+                      <span class="status">{{vol.date}}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-success"></i>
+                      <span class="status">{{vol.heure}}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-success"></i>
+                      <span class="status">{{vol.prix}}</span>
+                    </span>
+                  </td>
+                  
+                </tr>
+           
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Trajet</th>
-            <th scope="col">Date</th>
-            <th scope="col">Heure</th>
-            <th scope="col">Prix</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for vol in vols %}
-
-        <tr>
-            <th scope="row">{{vol.trajet}}</th>
-            <td>{{vol.date}}</td>
-            <td>{{vol.heure}}</td>
-            <td>{{vol.prix}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+             
+            
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+</div>
 {% endblock %}

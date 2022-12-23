@@ -1,9 +1,9 @@
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
   <div class="scrollbar-inner">
     <!-- Brand -->
-    <div class="sidenav-header  align-items-center">
+    <div class="sidenav-header  align-items-left badge">
       <a class="navbar-brand" href="/">
-        <img src="/static/assets/img/brand/blue.png" class="navbar-brand-img" alt="Argon Design - Jinja Template Logo.">
+          <span>Reservel</span>
       </a>
     </div>
     <div class="navbar-inner">
@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if 'map' in segment %} active {% endif %}" href="/reserver/compagnies">
+            <a class="nav-link {% if 'map' in segment %} active {% endif %}" href="{% url 'compagnies'%}">
               <i class="ni ni-pin-3 text-primary"></i>
               <span class="nav-link-text">Compagnie</span>
             </a>
@@ -36,9 +36,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if 'tables' in segment %} active {% endif %}" href="/tables.html">
+            <a class="nav-link {% if 'tables' in segment %} active {% endif %}" href="{% url 'trajects'%}">
               <i class="ni ni-bullet-list-67 text-default"></i>
-              <span class="nav-link-text">Tables</span>
+              <span class="nav-link-text">Trajets</span>
             </a>
           </li>
           <li class="nav-item">
@@ -65,35 +65,7 @@
           <span class="docs-normal">Resources</span>
         </h6>
         <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
 
-          <li class="nav-item">
-            <a class="nav-link" 
-               target="_blank" 
-               href="https://appseed.us/admin-dashboards/django-dashboard-argon">
-              <i class="ni ni-archive-2"></i>
-              <span class="nav-link-text">Product Page</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" 
-               target="_blank" 
-               href="https://appseed.us/admin-dashboards/django-dashboard-argon-pro">
-              <i class="ni ni-spaceship text-red"></i>
-              <span class="nav-link-text text-red">PRO Version</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active active-pro" 
-               target="_blank" 
-               href="http://appseed.us">
-              <i class="ni ni-send text-dark"></i>
-              <span class="nav-link-text">AppSeed</span>
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
