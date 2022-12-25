@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+    {% csrf_token %}
+    <form method="post" action={%url 'compagnie_update' comp.id%} >
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Mettre â jour">
+  </form>
+{% include "includes/footer.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

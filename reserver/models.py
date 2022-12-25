@@ -21,7 +21,7 @@ class Vol(models.Model):
 #Création du Model Compagnie
 class Compagnie(models.Model):
     nom = models.CharField(max_length=50)
-    logo = models.ImageField(upload_to="photo/%Y/%m/%d", blank=True)
+    logo = models.ImageField()
     vols = models.ManyToManyField(Vol)
    
 
