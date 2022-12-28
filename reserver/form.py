@@ -1,10 +1,14 @@
 from django import forms
+from django.forms import fields
 from reserver.models import Compagnie
 from django.contrib.auth.models import User
 class CompagnieForm(forms.ModelForm):
+    
     class Meta:
         model = Compagnie
-        fields = ['nom','logo']
+        fields=['nom','logo']
+        
+    
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)

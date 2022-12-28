@@ -4,9 +4,13 @@ from reserver.models import *
 from reserver.form import *
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+import os
+from django.conf import settings
 
 def index(request):
     return render(request,'index.html')
+def profile(request):
+    return render(request,'home/profile.html')
 def about(request):
     return render(request,'about.html')
 def vols(request):
@@ -25,21 +29,24 @@ def trajects(request):
     trajects=Trajet.objects.all()
     context={'trajects':trajects}
     return render(request,'trajets/accueil_traject.html',context)
+
 def modif_comp(request,id):
     comp = Compagnie.objects.get(pk=id)
     form= CompagnieForm()
     context={'comp':comp,'form':form}
     return render(request, 'compagnies/comp_form.html', context)
+
 def compagnie_update(request, id):
     comp = Compagnie.objects.get(pk=id)
     if request.method == 'POST':
-        form = CompagnieForm(request.POST, instance=comp)
+        form = CompagnieForm(request.POST,request.FILES, instance=comp)
         if form.is_valid():
             form.save()
             return redirect('compagnies')
     else: 
-        CompqgnieForm(instance=comp)
+        CompagnieForm(instance=comp)
     return render(request, 'compagnies/comp_form.html', {'form': form})
+
 def del_vol(request,id):
     vol=Vol.objects.get(pk=id)
     vol.delete()
